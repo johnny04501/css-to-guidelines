@@ -15,6 +15,10 @@
   "scripts": {},
   "dependencies": {},
   "devDependencies": {
-    "gulp": "latest"
+    "gulp": "latest",
+    "gulp-connect": "latest",
+    "gulp-sass": "latest",
+    "gulp-rename": "latest",
+    "gulp-cssmin": "latest"
   }
 }
