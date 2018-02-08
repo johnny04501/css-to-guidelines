@@ -34,7 +34,7 @@ gulp.task('connect', function() {
 
 // compress and minify css 
 // import.scss -> style.css -> style.min.css
-gulp.task('sass-to-css', function () {
+gulp.task('scss-to-css', function () {
   return gulp.src('./scss/import.scss')
   	.pipe(sass({outputStyle: 'compressed'}))
   	.pipe(rename('style.css'))  	
@@ -47,9 +47,9 @@ gulp.task('sass-to-css', function () {
 
 // watch task
 gulp.task('watch', function () {
-  gulp.watch(['./scss/*.scss'], ['sass']);
-  gulp.watch(['./scss/*/*.scss'], ['sass']);
-  gulp.watch(['./build/prod/css/style.min.css'], ['sass']);
+  gulp.watch(['./scss/*.scss'], ['scss-to-css']);
+  gulp.watch(['./scss/*/*.scss'], ['scss-to-css']);
+  gulp.watch(['./build/prod/css/style.min.css'], ['scss-to-css']);
 });
 
 
