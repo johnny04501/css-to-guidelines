@@ -12,3 +12,4 @@ gulpfile-dev.js
 
 # dependencies
 /node_modules
+/modules

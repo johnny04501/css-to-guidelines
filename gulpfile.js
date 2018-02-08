@@ -21,7 +21,10 @@ var connect     = require('gulp-connect');
 var sass 	    = require('gulp-sass');
 var rename 	    = require('gulp-rename');
 var cssmin      = require('gulp-cssmin');
+var replace     = require('gulp-replace');
 
+// custom modules
+var scssToHtml  = require('./modules/convert-scss-to-html.js');
 
 // live reload task
 // http://localhost:8080
