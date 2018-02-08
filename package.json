@@ -1,0 +1,20 @@
+{
+  "name": "css-to-guidelines",
+  "version": "0.0.1",
+  "private": false,
+  "contributors": [
+    {
+      "name": "Ján Baško",
+      "email": "basko.jan@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnny04501/css-to-guidelines.git"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "latest"
+  }
+}
