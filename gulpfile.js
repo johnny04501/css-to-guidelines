@@ -24,6 +24,7 @@ var replace     = require('gulp-replace');
 var requireDir 	= require('require-dir');
 var inject      = require('gulp-inject');
 var sequence    = require('gulp-sequence');
+var prompt      = require('gulp-prompt');
 
 // custom modules
 var dir = requireDir('./modules/');

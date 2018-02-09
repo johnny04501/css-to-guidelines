@@ -23,6 +23,7 @@
     "gulp-sass": "latest",
     "gulp-inject": "latest",
     "gulp-sequence": "latest",
+    "gulp-prompt": "latest",
     "require-dir": "latest"
   }
 }
