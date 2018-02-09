@@ -22,6 +22,8 @@ var rename 	    = require('gulp-rename');
 var cssmin      = require('gulp-cssmin');
 var replace     = require('gulp-replace'); 
 var requireDir 	= require('require-dir');
+var inject      = require('gulp-inject');
+var sequence    = require('gulp-sequence');
 
 // custom modules
 var dir = requireDir('./modules/');

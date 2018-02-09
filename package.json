@@ -21,6 +21,8 @@
     "gulp-rename": "latest",
     "gulp-replace": "latest",
     "gulp-sass": "latest",
+    "gulp-inject": "latest",
+    "gulp-sequence": "latest",
     "require-dir": "latest"
   }
 }
