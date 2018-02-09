@@ -49,6 +49,20 @@ gulp.task('scss-to-css', function () {
 gulp.task('scss-to-html', function(){
   return gulp.src(['./scss/sample-font.scss'])
     .pipe(replace('* ', '')) 
+    .pipe(replace('/*', '')) 
+    .pipe(replace('*/', '')) 
+    .pipe(replace('//[start]', '<div class="guid-section>'))
+    .pipe(replace('//[end]', '</div>'))
+    .pipe(replace('[title]', '<div class="guid-section-title>'))
+    .pipe(replace('[/title]', '</div>'))
+    .pipe(replace('[comment]', '<p class="guid-section-comment">'))
+    .pipe(replace('[/comment]', '</p>'))
+    .pipe(replace('{code}', '<textarea disabled class="code-in-comment">'))
+    .pipe(replace('{/code}', '</textarea>'))
+    .pipe(replace('[preview]', '<div class="guid-section-preview">'))
+    .pipe(replace('[/preview]', '</div>'))    
+    .pipe(replace('//[code]', '<pre>'))
+    .pipe(replace('//[/code]', '</pre>'))
     .pipe(rename('test.html')) 
     .pipe(gulp.dest('build/'));
     console.log('done templates');

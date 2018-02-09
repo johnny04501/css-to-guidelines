@@ -1,28 +1,46 @@
 //[start]
 
-//[title]Font test[/title]
-
 /*
-*[comment] 
-* Lorem ipsum dolor sit amet, consectetur adipiscing elit,nt,
-* sunt in culpa qui officia deserunt mollit 
-* anim id est laborum
-*[/comment]
+* [title]
+* Heading
+* [/title]
 */
 
-//[preview]<h1>Headline 1</h1><h2>Headline 2</h2>
-//[/preview]
+/*
+* [comment] 
+* All html heading from {code}<h1>{/code} to {code}<h6>{/code}.
+* [/comment]
+*/
+
+/*
+* [preview]
+* <h1>h1 heading</h1>
+* <h2>h2 heading</h2>
+* <h3>h3 heading</h3>
+* <h4>h4 heading</h4>
+* <h5>h5 heading</h5>
+* <h6>h6 heading</h6>
+* [/preview]
+*/
 
 //[code]
-h1{	
-	margin: 0;
-	font-size: 28px;
-	color: #333; 
+h1{	 
+	font-size: 40px; 
 }
-h2{	
-	margin: 0;
-	font-size: 24px;
-	color: #333; 
+h2{	 
+	font-size: 34px; 
+}
+h3{
+	font-size: 28px; 
+}
+h4{
+	font-size: 22px; 
+}
+h5{
+	font-size: 18px; 
+}
+h6{
+	font-size: 16px; 
 }
 //[/code]
 
