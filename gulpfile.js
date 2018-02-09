@@ -6,9 +6,8 @@
 //////////////////////////////////////////////
 //////////////////////////////////////////////
 ////                                      ////
-////  Author  : Ján Baško                 ////
-////  Email   : basko.jan@gmail.com       ////
-////  Version : beta                      ////
+////    Author  : Ján Baško               ////
+////    Email   : basko.jan@gmail.com     ////
 ////                                      ////
 //////////////////////////////////////////////
 //////////////////////////////////////////////
@@ -23,6 +22,8 @@ var rename 	    = require('gulp-rename');
 var cssmin      = require('gulp-cssmin');
 var replace     = require('gulp-replace'); 
 var requireDir 	= require('require-dir');
+
+// custom modules
 var dir = requireDir('./modules/');
 
 
@@ -46,9 +47,6 @@ gulp.task('scss-to-css', function () {
     .pipe(gulp.dest('./build/prod/css/'))
     .pipe(connect.reload());
 }); 
-
-
-
 
 
 // watch task

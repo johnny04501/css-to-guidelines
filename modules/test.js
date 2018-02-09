@@ -21,5 +21,4 @@ gulp.task('scss-to-html', function(){
     .pipe(replace('//[/code]', '</pre>'))
     .pipe(rename('test.html')) 
     .pipe(gulp.dest('build/'));
-    console.log('done templates');
 }); 
