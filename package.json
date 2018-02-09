@@ -17,9 +17,10 @@
   "devDependencies": {
     "gulp": "latest",
     "gulp-connect": "latest",
-    "gulp-sass": "latest",
-    "gulp-rename": "latest",
     "gulp-cssmin": "latest",
-    "gulp-replace": "latest"
+    "gulp-rename": "latest",
+    "gulp-replace": "latest",
+    "gulp-sass": "latest",
+    "require-dir": "latest"
   }
 }
