@@ -21,10 +21,8 @@ var connect     = require('gulp-connect');
 var sass 	    = require('gulp-sass');
 var rename 	    = require('gulp-rename');
 var cssmin      = require('gulp-cssmin');
-var replace     = require('gulp-replace');
+var replace     = require('gulp-replace'); 
 
-// custom modules
-var scssToHtml  = require('./modules/convert-scss-to-html.js');
 
 // live reload task
 // http://localhost:8080
@@ -32,7 +30,7 @@ gulp.task('connect', function() {
     connect.server({
         livereload: true
     });
-});  
+});   
 
 
 // compress and minify css 
@@ -45,6 +43,15 @@ gulp.task('scss-to-css', function () {
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./build/prod/css/'))
     .pipe(connect.reload());
+}); 
+
+
+gulp.task('scss-to-html', function(){
+  return gulp.src(['./scss/sample-font.scss'])
+    .pipe(replace('* ', '')) 
+    .pipe(rename('test.html')) 
+    .pipe(gulp.dest('build/'));
+    console.log('done templates');
 }); 
 
 
