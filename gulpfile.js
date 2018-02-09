@@ -37,6 +37,18 @@ gulp.task('connect', function() {
     });
 });   
 
+// inject html file to index html content section
+gulp.task('inject-to-index', function(){
+  return gulp.src(['./doc-template/index.html'])
+    .pipe(inject(gulp.src(['./build/test.html']), {
+         starttag: '<!-- inject:test:html -->',
+         transform: function(filepath, file) {
+           return file.contents.toString();
+         }
+      }))
+    .pipe(gulp.dest('./build/docs/'));
+    console.log('done inject-to-index');
+});
 
 // compress and minify css 
 // import.scss -> style.css -> style.min.css
