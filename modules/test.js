@@ -15,10 +15,10 @@ gulp.task('scss-to-html', function(){
     .pipe(replace('[/comment]', '</p>'))
     .pipe(replace('{code}', '<textarea disabled class="code-in-comment">'))
     .pipe(replace('{/code}', '</textarea>'))
-    .pipe(replace('[preview]', '<div class="guide-section-preview">'))
-    .pipe(replace('[/preview]', '</div>'))    
-    .pipe(replace('//[code]', '<pre class="guide-section-code-sample">'))
-    .pipe(replace('//[/code]', '</pre>'))
+    .pipe(replace('{preview}', '<div class="guide-section-preview">'))
+    .pipe(replace('{/preview}', '</div>'))    
+    .pipe(replace('//[css]', '<pre class="guide-section-code-sample">'))
+    .pipe(replace('//[/css]', '</pre>'))
     .pipe(rename('test.html')) 
     .pipe(gulp.dest('build/prod/prepare/'));
 }); 
