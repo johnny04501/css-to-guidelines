@@ -1,9 +1,10 @@
 var gulp        = require('gulp');
 var replace     = require('gulp-replace');
 var rename      = require('gulp-rename');
+var sass        = require('gulp-sass');
 
-gulp.task('scss-to-html', function(){
-  return gulp.src(['./scss/styles/sample-font.scss'])
+gulp.task('all-scss-to-html', function(){
+  return gulp.src(['./scss/styles/*'])
     .pipe(replace('* ', '')) 
     .pipe(replace('/*', '')) 
     .pipe(replace('*/', '')) 
@@ -16,9 +17,9 @@ gulp.task('scss-to-html', function(){
     .pipe(replace('{code}', '<textarea disabled class="code-in-comment">'))
     .pipe(replace('{/code}', '</textarea>'))
     .pipe(replace('[preview]', '<div class="guide-section-preview">'))
-    .pipe(replace('[/preview]', '</div>'))    
+    .pipe(replace('[/preview]', '</div>'))  
     .pipe(replace('//[css]', '<pre class="guide-section-code-sample">'))
     .pipe(replace('//[/css]', '</pre>'))
-    .pipe(rename('test.html')) 
-    .pipe(gulp.dest('build/prod/prepare/separate/'));
+    .pipe(rename({extname: '.html'})) 
+    .pipe(gulp.dest('build/prod/prepare/all/'));
 }); 
