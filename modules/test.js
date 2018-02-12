@@ -20,5 +20,5 @@ gulp.task('scss-to-html', function(){
     .pipe(replace('//[code]', '<pre class="guide-section-code-sample">'))
     .pipe(replace('//[/code]', '</pre>'))
     .pipe(rename('test.html')) 
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest('build/prod/prepare/'));
 }); 

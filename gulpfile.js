@@ -41,17 +41,29 @@ gulp.task('connect', function() {
 // inject html file to index html content section
 gulp.task('inject-to-index', function(){
   return gulp.src(['./doc-template/index.html'])
-    .pipe(inject(gulp.src(['./build/test.html']), {
+    .pipe(inject(gulp.src(['./build/prod/prepare/test.html']), {
          starttag: '<!-- inject:test:html -->',
          transform: function(filepath, file) {
            return file.contents.toString();
          }
       }))
-    .pipe(gulp.dest('./build/docs/'));
+    .pipe(gulp.dest('./build/prod/docs/'));
     console.log('done inject-to-index');
 });
 
-// compress and minify css 
+// compress and minify css for doc template 
+// import.scss -> guideline-template.css -> guideline-template.min.css
+gulp.task('prettify-docs-css', function () {
+  return gulp.src('./doc-template/scss/import.scss')
+  	.pipe(sass({outputStyle: 'compressed'}))
+  	.pipe(rename('guideline-template.css'))  	
+  	.pipe(cssmin())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('./build/prod/docs/css/'))
+    .pipe(connect.reload());
+}); 
+
+// compress and minify css
 // import.scss -> style.css -> style.min.css
 gulp.task('scss-to-css', function () {
   return gulp.src('./scss/import.scss')
@@ -62,7 +74,6 @@ gulp.task('scss-to-css', function () {
     .pipe(gulp.dest('./build/prod/css/'))
     .pipe(connect.reload());
 }); 
-
 
 // watch task
 gulp.task('watch', function () {
