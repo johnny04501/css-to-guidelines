@@ -28,10 +28,7 @@ var prompt      = require('gulp-prompt');
 var fs          = require('fs');
 
 // custom modules
-var dir = requireDir('./modules/');
-
-var getConfig = JSON.parse(fs.readFileSync('./config.json'));
-console.log(getConfig[1].pageName);
+var dir = requireDir('./modules/'); 
 
 // live reload task
 // http://localhost:8080
