@@ -4,7 +4,10 @@
 /build/*
 
 # dev files
-gulpfile-dev.js
+
+
+# prod files
+config.json
 
 # minified files
 /css/*
