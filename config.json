@@ -1,3 +1,18 @@
-{
-	"version": "0.0.7"
-}
+[
+	{
+		"pageName" : "default",
+		"hasChild" : false,
+		"child"	   : {
+			"pageName"  : "subdefault",
+			"hasChild"	: false
+		}
+	},
+	{
+		"pageName" : "default2",
+		"hasChild" : false,
+		"child"	   : {
+			"pageName"  : "subdefault",
+			"hasChild"	: false
+		}
+	}
+]

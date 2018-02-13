@@ -25,10 +25,13 @@ var requireDir 	= require('require-dir');
 var inject      = require('gulp-inject');
 var sequence    = require('gulp-sequence');
 var prompt      = require('gulp-prompt');
+var fs          = require('fs');
 
 // custom modules
 var dir = requireDir('./modules/');
 
+var getConfig = JSON.parse(fs.readFileSync('./config.json'));
+console.log(getConfig[1].pageName);
 
 // live reload task
 // http://localhost:8080
@@ -38,58 +41,6 @@ gulp.task('connect', function() {
     });
 });   
 
-// inject html file to index html content section
-gulp.task('inject-to-index', function(){
-  return gulp.src(['./doc-template/index.html'])
-  .pipe( prompt.prompt({
-            type:'list',
-            name:'inject',
-            message:'What would you like to inject to html index file?',
-            choices: ['all','separate']
-        }, (res) => {
-            if(res.inject == 'all'){
-            	console.log('all');
-  				return gulp.src(['./doc-template/index.html'])
-	            	.pipe(inject(gulp.src(['./build/prod/prepare/all/*.html']), {
-				         starttag: '<!-- inject:all:html -->',
-				         transform: function(filepath, file) {
-				           return file.contents.toString();
-				         }
-				      }))
-				    .pipe(gulp.dest('./build/prod/docs/'));
-            }
-            else{
-            	console.log('separate');
-            	return gulp.src(['./doc-template/index.html'])
-	            	.pipe(inject(gulp.src(['./build/prod/prepare/separate/test.html']), {
-				         starttag: '<!-- inject:test:html -->',
-				         transform: function(filepath, file) {
-				           return file.contents.toString();
-				         }
-				      }))
-				    .pipe(gulp.dest('./build/prod/docs/'));
-            }
-        }) );
-	// .pipe(prompt.prompt({
- //        type: 'checkbox',
- //        name: 'bump',
- //        message: 'What type of bump would you like to do?',
- //        choices: ['patch', 'minor', 'major']
- //    }, function(res){
- //        //value is in res.bump (as an array)
-
- //    console.log(res.bump);
- //    }));
-
-    // .pipe(inject(gulp.src(['./build/prod/prepare/test.html']), {
-    //      starttag: '<!-- inject:test:html -->',
-    //      transform: function(filepath, file) {
-    //        return file.contents.toString();
-    //      }
-    //   }))
-    // .pipe(gulp.dest('./build/prod/docs/'));
-    console.log('done inject-to-index');
-});
 
 // compress and minify css for doc template 
 // import.scss -> guideline-template.css -> guideline-template.min.css
