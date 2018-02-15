@@ -1,6 +1,5 @@
 var gulp 		= require('gulp'); 
 var prompt      = require('gulp-prompt');
-var file 		= require('gulp-file');
 var fs          = require('fs'); 
 
 var output = '[]';
