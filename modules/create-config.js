@@ -7,7 +7,8 @@ gulp.task('create-config', function(){
 	if (!fs.existsSync('./config.json')) {
 	  	fs.writeFile('./config.json', output, 'utf8', function (err) {
 			if (err) {
-			    return console.log(err);
+			    console.log('Problem with writing to config file!');
+			    console.log(err);
 			}
 			console.log('Config created!');
 		}); 

@@ -74,4 +74,5 @@ gulp.task('watch', function () {
 
 gulp.task('default', ['connect']); 
 gulp.task('start', ['create-config']);
-gulp.task('create-page', ['create-config']);
+gulp.task('create-page', ['add-to-config']);
+gulp.task('remove-page', ['rm-from-config']);

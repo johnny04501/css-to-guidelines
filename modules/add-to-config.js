@@ -7,7 +7,7 @@ var getConfig;
 var preparePush;
 var output; 
 
-gulp.task('update-config', function(){
+gulp.task('add-to-config', function(){
 	if (fs.existsSync('./config.json')) { 
 		var getConfig = JSON.parse(fs.readFileSync('./config.json'));
 		
@@ -32,6 +32,7 @@ gulp.task('update-config', function(){
 	        fs.writeFile('./config.json', output, 'utf8', function (err) {
 			    if (err) { 
 			        console.log('Problem with writing to config file!');
+			        console.log(err);
 			    }
 				console.log('Config updated!');
 			}); 
