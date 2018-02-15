@@ -26,6 +26,7 @@ var inject      = require('gulp-inject');
 var sequence    = require('gulp-sequence');
 var prompt      = require('gulp-prompt');
 var fs          = require('fs');
+var sequence    = require('gulp-sequence');
 
 // custom modules
 var dir = requireDir('./modules/'); 
@@ -71,4 +72,6 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('default', ['connect']);
+gulp.task('default', ['connect']); 
+gulp.task('start', ['create-config']);
+gulp.task('create-page', ['create-config']);
