@@ -13,6 +13,7 @@ gulp.task('create-config', function(){
 		}); 
 	}else{
 		console.log('Config already exist! Step skipped.');
+		process.exit();
 	}
 }); 	
 
