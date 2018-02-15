@@ -8,3 +8,6 @@ To install via Git, simply run the following line in your terminal:
 
 ## Basic usage
 1. We need to create a config file for our project. Create `config` file by using: `gulp start`
+
+2. Let's create our firt page by running: `gulp create-page`
+	* did you make a mistake ? No worries just run `gulp update-page` for updating your pages or `gulp remove-page` for remove pages you choose. 
