@@ -9,10 +9,6 @@ var pushArray = [];
 var i;
 var preparePush;
 
-// insert function
-Array.prototype.insert = function ( index, item ) {
-    this.splice( index, 0, item );
-};
 // push page names to a new array
 var getConfig = JSON.parse(fs.readFileSync('./config.json'));
 for (i = 0; i < getConfig.length; i++) {
