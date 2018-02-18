@@ -69,6 +69,7 @@ gulp.task('watch', function () {
   gulp.watch(['./scss/*.scss'], ['scss-to-css']);
   gulp.watch(['./scss/*/*.scss'], ['scss-to-css']);
   gulp.watch(['./build/prod/css/style.min.css'], ['scss-to-css']);
+  gulp.watch(['./doc-template/scss/export-scss/*.scss'], ['prettify-docs-css']);
 });
 
 
