@@ -76,3 +76,4 @@ gulp.task('default', ['connect']);
 gulp.task('start', ['create-config']);
 gulp.task('create-page', ['add-to-config']);
 gulp.task('remove-page', ['rm-from-config']);
+gulp.task('update-page', ['update-config']);

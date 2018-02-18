@@ -40,7 +40,7 @@ gulp.task('rm-from-config', function(){
 				        console.log('Problem with writing to config file!');
 				        console.log(err);
 				    }
-					console.log('Config updated!');
+					console.log('Page removed!');
 				});
 		    }));
 	    }
