@@ -24,6 +24,9 @@
     "gulp-inject": "latest",
     "gulp-sequence": "latest",
     "gulp-prompt": "latest",
-    "require-dir": "latest"
+    "require-dir": "latest",
+    "gulp-foreach": "latest",
+    "gulp-concat": "latest",
+    "gulp-cache": "latest"
   }
 }

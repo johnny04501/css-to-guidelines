@@ -15,12 +15,12 @@
 'use strict';
 
 // require modules
-var gulp 		= require('gulp');
+var gulp 		    = require('gulp');
 var connect     = require('gulp-connect');
-var sass 	    = require('gulp-sass');
+var sass 	      = require('gulp-sass');
 var rename 	    = require('gulp-rename');
 var cssmin      = require('gulp-cssmin');
-var replace     = require('gulp-replace'); 
+var replace     = require('gulp-replace');
 var requireDir 	= require('require-dir');
 var inject      = require('gulp-inject');
 var sequence    = require('gulp-sequence');
@@ -29,40 +29,45 @@ var fs          = require('fs');
 var sequence    = require('gulp-sequence');
 
 // custom modules
-var dir = requireDir('./modules/'); 
+var dir = requireDir('./modules/');
 
 // live reload task
 // http://localhost:8080
 gulp.task('connect', function() {
     connect.server({
-        livereload: true
+      livereload: true
     });
-});   
+});
 
 
-// compress and minify css for doc template 
+// console.log(getIndexHTML);
+
+
+// var htmlString = getIndexHTML.substring(getIndexHTML.indexOf('▲')+1,getIndexHTML.lastIndexOf('▲'));
+// console.log(htmlString);
+// compress and minify css for doc template
 // import.scss -> guideline-template.css -> guideline-template.min.css
 gulp.task('prettify-docs-css', function () {
   return gulp.src('./doc-template/scss/import.scss')
   	.pipe(sass({outputStyle: 'compressed'}))
-  	.pipe(rename('guideline-template.css'))  	
+  	.pipe(rename('guideline-template.css'))
   	.pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./build/prod/docs/css/'))
     .pipe(connect.reload());
-}); 
+});
 
 // compress and minify css
 // import.scss -> style.css -> style.min.css
 gulp.task('scss-to-css', function () {
   return gulp.src('./scss/import.scss')
   	.pipe(sass({outputStyle: 'compressed'}))
-  	.pipe(rename('style.css'))  	
+  	.pipe(rename('style.css'))
   	.pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./build/prod/css/'))
     .pipe(connect.reload());
-}); 
+});
 
 // watch task
 gulp.task('watch', function () {
@@ -73,8 +78,11 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('default', ['connect']); 
+gulp.task('default', ['connect']);
 gulp.task('start', ['create-config']);
 gulp.task('create-page', ['add-to-config']);
 gulp.task('remove-page', ['rm-from-config']);
 gulp.task('update-page', ['update-config']);
+gulp.task('create-docs', function(done) {
+  sequence(['all-scss-to-html'], 'inject-to-section', ['inject-to-index'],'prettify-docs-css', done);
+});

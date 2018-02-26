@@ -3,7 +3,8 @@
 <head>
 	<title>Your guideline</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="../build/prod/docs/css/guideline-template.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/guideline-template.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css">
 </head>
 <body>	
 	<div class="c2g-wrap">
@@ -25,12 +26,15 @@
 					</li>
 				</ul>
 			</div>
-			<div class="c2g-container"></div>
+			<div class="c2g-container">
+				<div class="c2g-content">
+				<!-- inject:all:html -->
+				<!-- endinject -->			
+				</div>	
+			</div>
 		</div>
 	</div>
-<!-- inject:all:html -->
-<!-- endinject -->
-<!-- inject:test:html -->
-<!-- endinject -->
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.12.0/build/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

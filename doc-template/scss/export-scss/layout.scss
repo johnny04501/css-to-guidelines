@@ -20,6 +20,7 @@ body{
 	height: 100%;
 	.c2g-topbar{
 		display: flex;
+		flex-flow: row;
 		align-items: center;
 		width: 100%;
 		height: 60px;
@@ -27,6 +28,8 @@ body{
 		box-shadow: 0 2px 5px rgba(0,0,0,.26);
 		z-index: 99;
 		.c2g-logo-a{
+			display: flex;
+			align-items: center;
 			color: #fff;
 			text-decoration: none;
 			padding: 0 20px;
@@ -43,11 +46,14 @@ body{
 		display: flex;
 		flex: 2 0 0;
 		z-index: 5;
+		overflow: hidden;
 		.c2g-left-nav{
 			max-width: 320px;
 			min-width: 240px;
 			background-color: #fff;
 			border-right: 1px solid rgba(229,229,229, 1);	
+			overflow-x: hidden;
+			overflow-y: auto; 
 			.c2g-navigation{				
 				position: relative;
 				font-size: 16px;
@@ -100,7 +106,66 @@ body{
 		}
 		.c2g-container{
 			flex: 2 0 0;
+			overflow-x: hidden;
+			overflow-y: auto; 
+			.c2g-content{
+				padding: 20px 40px;
+				.c2g-guide-section{
+					margin-top: 60px;
+					padding: 0 20px 20px 20px;
+					border-bottom: 1px solid rgba(229,229,229, 1);
+					&:first-child{
+						margin-top: 0px;
+					}
+					&:last-child{
+						border-bottom: none
+					}
+					.c2g-guide-section-title{
+						color: #333;
+						font-size: 36px;
+						font-weight: 500;
+					}
+					.c2g-guide-section-comment{
+						color: #333;
+						font-size: 14px;
+						line-height: 24px;
+						.c2g-code-in-comment{
+							background-color: #ececec;
+							border: none;
+							resize: none;
+						}
+					}
+					.code-wrap{
+						position: relative;
+						.code-type{
+							position: absolute;
+							top: 0px;
+							left: 0px;
+							font-size: 18px;
+							font-weight: 500; 
+							background-color: #5787bf;
+						    color: #fff;
+						    z-index: 20;
+						    padding: 5px 15px;
+						}
+						.c2g-guide-section-code-sample{		
+							position: relative;		
+							padding: 0;	
+							margin: 0;	
+							border: 1px solid rgba(229,229,229, 1);
 
+							code{
+								padding: 30px 20px 20px 20px;
+								font-size: 12px; 
+								.hljs-attribute{
+									margin-left: -40px;
+								}
+							}
+						}
+					}
+					
+				}
+			}
 		}
 	}
 }
