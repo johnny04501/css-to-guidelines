@@ -1,6 +1,7 @@
 var gulp        = require('gulp');
 var prompt      = require('gulp-prompt');
 var inject      = require('gulp-inject');
+var htmlmin     = require('gulp-htmlmin');
 
 // inject html file to index html content section
 gulp.task('inject-to-index', function(){
@@ -20,6 +21,7 @@ gulp.task('inject-to-index', function(){
                      return file.contents.toString();
 			         }
 			      }))
+          .pipe(htmlmin({collapseWhitespace: true}))
 			    .pipe(gulp.dest('./build/prod/docs/'));
         }
         else{
@@ -31,6 +33,7 @@ gulp.task('inject-to-index', function(){
 			           return file.contents.toString();
 			         }
 			      }))
+          .pipe(htmlmin({collapseWhitespace: true}))
 			    .pipe(gulp.dest('./build/prod/docs/'));
         }
     }));

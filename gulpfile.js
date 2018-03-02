@@ -27,6 +27,7 @@ var sequence    = require('gulp-sequence');
 var prompt      = require('gulp-prompt');
 var fs          = require('fs');
 var sequence    = require('gulp-sequence');
+var htmlmin     = require('gulp-htmlmin');
 
 // custom modules
 var dir = requireDir('./modules/');
@@ -35,17 +36,14 @@ var dir = requireDir('./modules/');
 // http://localhost:8080
 gulp.task('connect', function() {
     connect.server({
-      livereload: true
+      livereload: true,
+      directoryListing: true
     });
 });
 
 
 // console.log(getIndexHTML);
 
-
-// var htmlString = getIndexHTML.substring(getIndexHTML.indexOf('▲')+1,getIndexHTML.lastIndexOf('▲'));
-// console.log(htmlString);
-// compress and minify css for doc template
 // import.scss -> guideline-template.css -> guideline-template.min.css
 gulp.task('prettify-docs-css', function () {
   return gulp.src('./doc-template/scss/import.scss')
@@ -78,11 +76,11 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('default', ['connect']);
+gulp.task('default', ['connect', 'watch']);
 gulp.task('start', ['create-config']);
 gulp.task('create-page', ['add-to-config']);
 gulp.task('remove-page', ['rm-from-config']);
 gulp.task('update-page', ['update-config']);
 gulp.task('create-docs', function(done) {
-  sequence(['all-scss-to-html'], 'inject-to-section', ['inject-to-index'],'prettify-docs-css', done);
+  sequence('scss-to-css', ['all-scss-to-html'], 'inject-to-section', ['inject-to-index'],'prettify-docs-css', done);
 });
