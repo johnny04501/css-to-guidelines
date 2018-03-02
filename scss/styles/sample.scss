@@ -5,13 +5,26 @@
 */
 
 /*
-* [comment] 
+* [comment]
 * All common styles
 * [/comment]
 */
 
 //[css]
 *{
-	box-sizing: boder-box;
+  box-sizing: boder-box;
+}
+
+.test{
+  position: relative;
+  .child{
+    position: relative;
+    &.sibling{
+      position: relative;
+      &:before{
+        position: relative;
+      }
+    }
+  }
 }
 //[/css]

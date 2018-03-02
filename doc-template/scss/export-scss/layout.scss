@@ -51,10 +51,10 @@ body{
 			max-width: 320px;
 			min-width: 240px;
 			background-color: #fff;
-			border-right: 1px solid rgba(229,229,229, 1);	
+			border-right: 1px solid rgba(229,229,229, 1);
 			overflow-x: hidden;
-			overflow-y: auto; 
-			.c2g-navigation{				
+			overflow-y: auto;
+			.c2g-navigation{
 				position: relative;
 				font-size: 16px;
 				color: #000;
@@ -85,8 +85,8 @@ body{
 					}
 					.c2g-chapter-list{
 						display: none;
-						padding: 0px 40px;	
-						font-size: 14px;					
+						padding: 0px 40px;
+						font-size: 14px;
 						text-decoration: none;
 						list-style: none;
 						font-weight: 500;
@@ -102,17 +102,17 @@ body{
 						}
 					}
 				}
-			}			
+			}
 		}
 		.c2g-container{
 			flex: 2 0 0;
 			overflow-x: hidden;
-			overflow-y: auto; 
+			overflow-y: auto;
 			.c2g-content{
 				padding: 20px 40px;
 				.c2g-guide-section{
 					margin-top: 60px;
-					padding: 0 20px 20px 20px;
+					padding: 0 20px 60px 20px;
 					border-bottom: 1px solid rgba(229,229,229, 1);
 					&:first-child{
 						margin-top: 0px;
@@ -124,46 +124,75 @@ body{
 						color: #333;
 						font-size: 36px;
 						font-weight: 500;
+            padding-top: 10px;
+            margin: 10px 0 0 0;
+            padding: 0;
 					}
 					.c2g-guide-section-comment{
 						color: #333;
 						font-size: 14px;
 						line-height: 24px;
+            margin: 15px 0;
+            span{
+              background-color: #d4d4d4;
+              padding: 3px 6px;
+              border-radius: 4px;
+              color: #828282;
+            }
 						.c2g-code-in-comment{
 							background-color: #ececec;
 							border: none;
 							resize: none;
 						}
 					}
-					.code-wrap{
+					.c2g-code-section{
 						position: relative;
-						.code-type{
-							position: absolute;
-							top: 0px;
-							left: 0px;
-							font-size: 18px;
-							font-weight: 500; 
-							background-color: #5787bf;
-						    color: #fff;
-						    z-index: 20;
-						    padding: 5px 15px;
-						}
-						.c2g-guide-section-code-sample{		
-							position: relative;		
-							padding: 0;	
-							margin: 0;	
-							border: 1px solid rgba(229,229,229, 1);
+            display: flex;
+            border: 1px solid rgba(229,229,229, 1);
 
-							code{
-								padding: 30px 20px 20px 20px;
-								font-size: 12px; 
-								.hljs-attribute{
-									margin-left: -40px;
-								}
-							}
-						}
+            .c2g-code-wrap{
+              position: relative;
+              flex:1;
+              display: flex;
+              flex-flow: column;
+              .c2g-code-type-wrap{
+                position: relative;
+                background-color: #fff;
+                .c2g-code-type{
+                  display: inline-block;
+                  font-size: 18px;
+                  font-weight: 500;
+                  background-color: #5787bf;
+                  color: #fff;
+                  z-index: 20;
+                  padding: 5px 15px;
+                }
+              }
+
+              .c2g-guide-section-code-sample{
+                position: relative;
+                padding: 0;
+                margin: 0;
+                height: 100%;
+                display: flex;
+
+                code{
+                  padding: 8px 20px 0px 20px;
+                  font-size: 12px;
+                  height: 100%;
+                  width: 100%;
+                  &.html{
+                    font-size: 14px;
+                    span {line-height: 26px;}
+                    border-left: 1px solid rgba(229,229,229, 1);
+                  }
+                  &.css{
+                    font-size: 12px;
+                  }
+                }
+              }
+            }
 					}
-					
 				}
 			}
 		}
