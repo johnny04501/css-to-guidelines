@@ -7,13 +7,13 @@ var rename      = require('gulp-rename');
 
 gulp.task('inject-to-section', function(){
   fs.readdirSync('./build/prod/prepare/all/').forEach(file => {
+    var noPreview = 'hide-element';
     var filename = file.split('.');
     filename = filename[0];
     var getIndexHTML = fs.readFileSync('./build/prod/prepare/all/'+filename+'.html', 'utf8');
 
     // get heading from file
     var getHeading = getIndexHTML.substring(getIndexHTML.indexOf('◢')+1, getIndexHTML.lastIndexOf('◢'));
-    console.log('getHeading', getHeading);
 
     // get comment from file
     var getComment = getIndexHTML.substring(getIndexHTML.indexOf('▶')+1, getIndexHTML.lastIndexOf('▶'));
@@ -21,15 +21,12 @@ gulp.task('inject-to-section', function(){
     getComment = getComment.replace(/[>]/g, '&gt;');
     getComment = getComment.replace(/[⸨]/g, '<span>');
     getComment = getComment.replace(/[⸩]/g, '</span>');
-    console.log('getComment', getComment);
 
     // get preview from file
     var getPreview = getIndexHTML.substring(getIndexHTML.indexOf('▲')+1, getIndexHTML.lastIndexOf('▲'));
-    console.log('getPreview', getPreview);
 
     // get css from file
     var getCss = getIndexHTML.substring(getIndexHTML.indexOf('▼')+1, getIndexHTML.lastIndexOf('▼'));
-    console.log('getPreview', getCss);
 
     // replace < > for html snippet
     var getHtml = getPreview;
@@ -41,13 +38,13 @@ gulp.task('inject-to-section', function(){
       .pipe(inject(gulp.src(['./build/prod/prepare/all/'+filename+'.html']), {
         starttag: '<!-- inject:heading:html -->',
         transform: function(filepath, file) {
-          return getHeading;
+          return getHeading.toString('utf8');
         }
       }))
       .pipe(inject(gulp.src(['./build/prod/prepare/all/'+filename+'.html']), {
         starttag: '<!-- inject:comment:html -->',
         transform: function(filepath, file) {
-          return getComment;
+          return getComment.toString('utf8');
         }
       }))
       .pipe(inject(gulp.src(['./build/prod/prepare/all/'+filename+'.html']), {
@@ -59,13 +56,45 @@ gulp.task('inject-to-section', function(){
       .pipe(inject(gulp.src(['./build/prod/prepare/all/'+filename+'.html']), {
         starttag: '<!-- inject:codecss:html -->',
         transform: function(filepath, file) {
-          return getCss;
+          if(!getCss || getCss.length <= 0){
+            return;
+          }
+          else{
+            return getCss;
+          }
         }
       }))
       .pipe(inject(gulp.src(['./build/prod/prepare/all/'+filename+'.html']), {
         starttag: '<!-- inject:codehtml:html -->',
         transform: function(filepath, file) {
-          return getHtml;
+          if(!getHtml || getHtml.length <= 0){
+            return;
+          }
+          else{
+            return getHtml;
+          }
+        }
+      }))
+      .pipe(inject(gulp.src(['./build/prod/prepare/all/'+filename+'.html']), {
+        starttag: '<!-- inject:showcodecss:html -->',
+        transform: function(filepath, file) {
+          if(!getCss || getCss.length <= 0){
+            return noPreview;
+          }
+          else{
+            return;
+          }
+        }
+      }))
+      .pipe(inject(gulp.src(['./build/prod/prepare/all/'+filename+'.html']), {
+        starttag: '<!-- inject:showcodehtml:html -->',
+        transform: function(filepath, file) {
+          if(!getHtml || getHtml.length <= 0){
+            return noPreview;
+          }
+          else{
+            return;
+          }
         }
       }))
       .pipe(rename({basename: filename}))
