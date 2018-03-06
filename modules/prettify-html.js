@@ -26,5 +26,4 @@ gulp.task('prettify-html', function(){
   return gulp.src(['./build/prod/docs/prepare/index.html'])
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('./build/prod/docs/'));
-  console.log('prettify html DONE!');
 });

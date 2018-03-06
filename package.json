@@ -28,6 +28,7 @@
     "gulp-foreach": "latest",
     "gulp-concat": "latest",
     "gulp-cache": "latest",
-    "gulp-htmlmin": "latest"
+    "gulp-htmlmin": "latest",
+    "gulp-clean": "latest"
   }
 }
