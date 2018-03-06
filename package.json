@@ -1,0 +1,34 @@
+{
+  "name": "css-to-guidelines",
+  "version": "0.0.1",
+  "private": false,
+  "contributors": [
+    {
+      "name": "Ján Baško",
+      "email": "basko.jan@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnny04501/css-to-guidelines.git"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-connect": "latest",
+    "gulp-cssmin": "latest",
+    "gulp-rename": "latest",
+    "gulp-replace": "latest",
+    "gulp-sass": "latest",
+    "gulp-inject": "latest",
+    "gulp-sequence": "latest",
+    "gulp-prompt": "latest",
+    "require-dir": "latest",
+    "gulp-foreach": "latest",
+    "gulp-concat": "latest",
+    "gulp-cache": "latest",
+    "gulp-htmlmin": "latest",
+    "gulp-clean": "latest"
+  }
+}

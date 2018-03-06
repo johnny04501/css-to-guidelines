@@ -5,9 +5,8 @@
 
 # dev files
 
-
 # prod files
-config.json
+.editorconfig
 
 # minified files
 /css/*
