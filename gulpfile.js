@@ -81,5 +81,5 @@ gulp.task('create-page', ['add-to-config']);
 gulp.task('remove-page', ['rm-from-config']);
 gulp.task('update-page', ['update-config']);
 gulp.task('create-guideline', function(done) {
-  sequence('scss-to-css', 'prepare-index', ['all-scss-to-html'], 'inject-to-section', ['generate-menu'],'inject-menu-to-index', ['inject-to-index'], 'prettify-docs-css', 'prettify-html', done);
+  sequence('scss-to-css', 'prepare-index', ['all-scss-to-html'], 'inject-to-section', ['generate-menu'],'inject-menu-to-index', ['inject-to-index'], 'prettify-docs-css', 'prettify-html',['clean-all'], done);
 });
