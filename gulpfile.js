@@ -76,11 +76,12 @@ gulp.task('watch', function () {
 });
 
 
+// predefined tasks
 gulp.task('default', ['connect', 'watch']);
 gulp.task('start', ['create-config']);
 gulp.task('create-page', ['add-to-config']);
 gulp.task('remove-page', ['rm-from-config']);
 gulp.task('update-page', ['update-config']);
 gulp.task('create-docs', function(done) {
-  sequence('scss-to-css', 'prepare-index', ['all-scss-to-html'], 'inject-to-section', ['generate-menu'],'inject-menu-index', ['inject-to-index'], 'prettify-docs-css', 'prettify-html', done);
+  sequence('scss-to-css', 'prepare-index', ['all-scss-to-html'], 'inject-to-section', ['generate-menu'],'inject-menu-to-index', ['inject-to-index'], 'prettify-docs-css', 'prettify-html', done);
 });

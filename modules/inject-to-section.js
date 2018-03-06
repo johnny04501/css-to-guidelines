@@ -34,6 +34,7 @@ gulp.task('inject-to-section', function(){
     getHtml = getHtml.replace(/[>]/g, '&gt;');
 
 
+    // inject all parts to predefined page section template
     return gulp.src(['./doc-template/page-section.html'])
       .pipe(inject(gulp.src(['./build/prod/prepare/all/'+filename+'.html']), {
         starttag: '<!-- inject:heading:html -->',

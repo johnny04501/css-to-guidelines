@@ -14,7 +14,7 @@
 *{
   box-sizing: boder-box;
 }
-
+$brand-color: #fff;
 .test{
   position: relative;
   .child{
@@ -23,6 +23,7 @@
       position: relative;
       &:before{
         position: relative;
+        color: $brand-color;
       }
     }
   }

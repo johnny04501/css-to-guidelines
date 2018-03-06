@@ -1,7 +1,8 @@
-var gulp 		= require('gulp'); 
+var gulp 		    = require('gulp');
 var prompt      = require('gulp-prompt');
-var fs          = require('fs'); 
+var fs          = require('fs');
 
+// create config file for future using
 var output = '[]';
 gulp.task('create-config', function(){
 	if (!fs.existsSync('./config.json')) {
@@ -11,10 +12,10 @@ gulp.task('create-config', function(){
 			    console.log(err);
 			}
 			console.log('Config created!');
-		}); 
+		});
 	}else{
 		console.log('Config already exist! Step skipped.');
 		process.exit();
 	}
-}); 	
+});
 
