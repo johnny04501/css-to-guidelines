@@ -1,25 +1,25 @@
 var gulp        = require('gulp');
 var prompt      = require('gulp-prompt');
-var fs          = require('fs'); 
+var fs          = require('fs');
 var rename 	    = require('gulp-rename');
 
-var getConfig;
-var output;
-var pushArray = []; 
-var i;
-
-// push page names to a new array
-var getConfig = JSON.parse(fs.readFileSync('./config.json'));
-for (i = 0; i < getConfig.length; i++) {
-	pushArray.push(getConfig[i].pageName);
-}
 
 gulp.task('rm-from-config', function(){
+  var getConfig;
+  var output;
+  var pushArray = [];
+  var i;
+
+  // push page names to a new array
+  var getConfig = JSON.parse(fs.readFileSync('./config.json'));
+  for (i = 0; i < getConfig.length; i++) {
+    pushArray.push(getConfig[i].pageName);
+  }
 	// check if config exist
-	if (fs.existsSync('./config.json')) { 
+	if (fs.existsSync('./config.json')) {
 		// check if array of pages is empty or not
-		if (pushArray.length !== 0) {			
-			
+		if (pushArray.length !== 0) {
+
 			return gulp.src(['./config.json'])
 			.pipe(prompt.prompt({
 		        type: 'checkbox',
@@ -36,7 +36,7 @@ gulp.task('rm-from-config', function(){
 				output = JSON.stringify(getConfig);
 				// rewrite config file
 		        fs.writeFile('./config.json', output, 'utf8', function (err) {
-				    if (err) { 
+				    if (err) {
 				        console.log('Problem with writing to config file!');
 				        console.log(err);
 				    }
@@ -51,7 +51,7 @@ gulp.task('rm-from-config', function(){
 
 		}
 	} else{
-		console.log('Config file not exist! Please run: gulp start');		
+		console.log('Config file not exist! Please run: gulp start');
 		process.exit();
 	}
 });
