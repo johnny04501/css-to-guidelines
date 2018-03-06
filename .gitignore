@@ -7,7 +7,6 @@
 
 
 # prod files
-config.json
 .editorconfig
 
 # minified files
