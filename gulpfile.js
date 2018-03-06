@@ -42,8 +42,6 @@ gulp.task('connect', function() {
 });
 
 
-// console.log(getIndexHTML);
-
 // import.scss -> guideline-template.css -> guideline-template.min.css
 gulp.task('prettify-docs-css', function () {
   return gulp.src('./doc-template/scss/import.scss')
