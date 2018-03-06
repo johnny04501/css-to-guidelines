@@ -11,6 +11,7 @@ body{
 	font-family: 'Roboto', sans-serif;
 	height: 100%;
 	background-color: #f9f9f9;
+  -webkit-font-smoothing: antialiased;
 }
 
 .c2g-wrap{
@@ -106,7 +107,7 @@ body{
 		}
 		.c2g-container{
 			flex: 2 0 0;
-			overflow-x: hidden;
+			overflow-x: auto;
 			overflow-y: auto;
 			.c2g-content{
 				padding: 20px 40px;
@@ -148,13 +149,15 @@ body{
 					.c2g-code-section{
 						position: relative;
             display: flex;
-            border: 1px solid rgba(229,229,229, 1);
+            flex-flow: row wrap;
 
             .c2g-code-wrap{
               position: relative;
               flex:1;
               display: flex;
               flex-flow: column;
+              border: 1px solid #e5e5e5;
+              width: 100%;
               .c2g-code-type-wrap{
                 position: relative;
                 background-color: #fff;
@@ -184,7 +187,6 @@ body{
                   &.html{
                     font-size: 14px;
                     span {line-height: 26px;}
-                    border-left: 1px solid rgba(229,229,229, 1);
                   }
                   &.css{
                     font-size: 12px;
